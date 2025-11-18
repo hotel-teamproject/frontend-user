@@ -1,0 +1,103 @@
+@use "../../common/variables" as *;
+@use "../../common/mixins" as *;
+@use "sass:color";
+
+/* ===========================
+    Header
+=========================== */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $header-height;
+  background: $color-bg;
+  border-bottom: 1px solid $color-border;
+  z-index: 50;
+
+  /* 기존 shadow-sm → shadow-soft로 변경 (mixins에 존재하는 버전) */
+  @include shadow-soft;
+
+  .inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* 로고 */
+  .logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: $color-primary;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  /* 네비게이션 */
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    a {
+      font-size: 16px;
+      font-weight: 500;
+      color: $color-secondary;
+      padding: 6px 0;
+      position: relative;
+      transition: color .2s ease;
+
+      &:hover {
+        color: color.scale($color-primary, $lightness: -6%);
+      }
+
+      /* 활성 메뉴 표시 */
+      &.active {
+        color: $color-primary;
+        font-weight: 600;
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -6px;
+          width: 100%;
+          height: 2px;
+          background: $color-primary;
+          border-radius: 2px;
+        }
+      }
+    }
+  }
+
+  /* 로그인/회원가입 */
+  .auth-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .btn--primary { @include shadow-soft; }
+  }
+}
+
+/* ===========================
+    Responsive
+=========================== */
+
+@include respond-md {
+  .site-header {
+    .nav a {
+      font-size: 14px;
+    }
+
+    .auth-links .btn--sm {
+      padding: 6px 10px;
+      font-size: 13px;
+    }
+  }
+}
