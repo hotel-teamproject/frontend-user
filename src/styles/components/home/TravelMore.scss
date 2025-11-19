@@ -1,0 +1,75 @@
+/* ===========================
+   TravelMore Section 스타일
+   (Frame 118 기준)
+============================= */
+
+.travel-more {
+  display: flex;
+  justify-content: center;
+  padding: 80px 0; /* 상단 여백 조금 추가하면 피그마 느낌 */
+}
+
+.travel-more .container {
+  width: 1232px;             /* Frame118 width */
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* 중앙 정렬 */
+  padding: 0;
+  gap: 24px;                 /* Frame118 gap */
+}
+
+/* Section Header */
+.section-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .section-title {
+    font-size: 28px;
+    font-weight: 700;
+  }
+
+  .see-all-btn {
+    background: #eef6ff;
+    border: 1px solid #d0e3ff;
+    padding: 8px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+
+    &:hover {
+      background: #d8e9ff;
+    }
+  }
+}
+
+/* Subtitle */
+.section-subtitle {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  text-align: left;
+  width: 100%;
+}
+
+/* Main Content Layout */
+.travel-content {
+  width: 100%;
+  display: flex;
+  gap: 24px;             /* Figma gap */
+}
+
+/* 왼쪽 MalakaTour 카드 */
+.travel-content > div:first-child {
+  flex: 1;
+}
+
+/* 오른쪽 TravelGallery 4개 격자 */
+.travel-content > div:last-child {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 16px;
+}
