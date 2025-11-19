@@ -1,0 +1,145 @@
+footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 128px;
+
+  /* 피그마 프레임 배경/모양 적용 */
+  background: #eef9f4;  /* 피그마 연한 녹색 계열 */
+  border-radius: 30px 30px 0 0;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.02);
+  padding-top: 80px; /* Newsletter와의 간격 */
+}
+
+/* Newsletter (상단 카드 영역) */
+footer > *:first-child {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* 메인 링크 영역 */
+.footer-links {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .inner {
+    width: 1232px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 240px;
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: #111;
+    }
+
+    .description {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 12px;
+
+      .social-link {
+        width: 28px;
+        height: 28px;
+        background-size: cover;
+        background-position: center;
+      }
+    }
+  }
+
+  /* 네비게이션 컬럼 */
+  .link-columns {
+    display: flex;
+    gap: 40px;
+
+    .link-column {
+      h4 {
+        font-size: 15px;
+        margin-bottom: 12px;
+        font-weight: bold;
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+
+        a {
+          font-size: 13px;
+          color: #444;
+          transition: 0.2s;
+
+          &:hover {
+            color: #0284c7;
+          }
+        }
+      }
+    }
+  }
+
+  .follow-us {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .follow-title {
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    .follow-icons {
+      display: flex;
+      gap: 12px;
+
+      .follow-link {
+        width: 28px;
+        height: 28px;
+        background-size: cover;
+        background-position: center;
+      }
+    }
+  }
+}
+
+/* 하단 Footer Bottom */
+.footer-bottom {
+  width: 100%;
+  border-top: 1px solid #ddd;
+  padding: 32px 0;
+
+  .inner {
+    width: 1232px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .footer-info {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .footer-contact {
+      font-size: 13px;
+      color: #666;
+    }
+  }
+}
