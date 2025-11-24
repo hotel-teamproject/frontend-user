@@ -1,75 +1,76 @@
-/* ===========================
-   TravelMore Section 스타일
-   (Frame 118 기준)
-============================= */
+/* ==============================
+   TravelMore (Frame 118 기반)
+============================== */
 
 .travel-more {
+  width: 100%;
   display: flex;
   justify-content: center;
-  padding: 80px 0; /* 상단 여백 조금 추가하면 피그마 느낌 */
-}
+  padding-top: 80px;   /* 위 섹션과 자연스러운 간격 */
+  padding-bottom: 80px;
 
-.travel-more .container {
-  width: 1232px;             /* Frame118 width */
-  display: flex;
-  flex-direction: column;
-  align-items: center;       /* 중앙 정렬 */
-  padding: 0;
-  gap: 24px;                 /* Frame118 gap */
-}
+  .container {
+    width: 1232px;                 /* Frame 118 width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;           /* Frame 118 align-items */
+    padding: 0;
+    gap: 24px;                     /* Frame 118 gap */
+    height: 540px;                 /* Frame 118 height */
 
-/* Section Header */
-.section-header {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  .section-title {
-    font-size: 28px;
-    font-weight: 700;
+    /* 내부 오토레이아웃(Figma flex settings) */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
   }
 
-  .see-all-btn {
-    background: #eef6ff;
-    border: 1px solid #d0e3ff;
-    padding: 8px 18px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: 0.2s;
+  /* ===============================
+     Section Header
+  =============================== */
+  .section-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    &:hover {
-      background: #d8e9ff;
+    .section-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: #222;
+    }
+
+    .see-all-btn {
+      padding: 8px 16px;
+      font-size: 14px;
+      border: 1px solid #dcdcdc;
+      border-radius: 8px;
+      background: #fff;
+      cursor: pointer;
+      transition: 0.2s;
+
+      &:hover {
+        background: #f6f6f6;
+      }
     }
   }
-}
 
-/* Subtitle */
-.section-subtitle {
-  font-size: 14px;
-  color: #666;
-  line-height: 1.6;
-  text-align: left;
-  width: 100%;
-}
+  /* ===============================
+     Sub Text
+  =============================== */
+  .section-subtitle {
+    width: 100%;
+    font-size: 15px;
+    color: #666;
+    line-height: 1.5;
+  }
 
-/* Main Content Layout */
-.travel-content {
-  width: 100%;
-  display: flex;
-  gap: 24px;             /* Figma gap */
-}
-
-/* 왼쪽 MalakaTour 카드 */
-.travel-content > div:first-child {
-  flex: 1;
-}
-
-/* 오른쪽 TravelGallery 4개 격자 */
-.travel-content > div:last-child {
-  flex: 1;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 16px;
+  /* ===============================
+     Content Layout
+  =============================== */
+  .travel-content {
+    width: 100%;
+    display: flex;
+    gap: 24px;      /* Figma gap 24px 기반 확장 */
+    justify-content: space-between;
+  }
 }

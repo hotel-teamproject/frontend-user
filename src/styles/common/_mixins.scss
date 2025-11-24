@@ -1,14 +1,10 @@
-@mixin respond-md {
-  @media (max-width: 76.8rem) {
-    @content;
-  }
-}
+@use "variables" as *;
 
-@mixin shadow-soft {
-  box-shadow: 0 0.4rem 1.6rem rgba(0, 0, 0, 0.08);
-}
+@mixin respond-md { @media (max-width: $breakpoint-md) { @content; } }
 
-@mixin text-ellipsis($lines: 1) {
+@mixin shadow-soft { box-shadow: 0 4px 16px rgba(0,0,0,.08); }
+
+@mixin text-ellipsis($lines:1){
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: $lines;

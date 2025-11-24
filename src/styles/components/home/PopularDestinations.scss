@@ -1,80 +1,89 @@
-/* ================================
-   PopularDestinations Section
-=================================== */
-
-/* 섹션 전체 - 피그마 Frame117과 동일한 구조 */
+/* -------------------------------
+   Frame 117  →  section.container
+-------------------------------- */
 .container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding-top: 80px;      /* 위쪽 여백 */
-  padding-bottom: 80px;   /* 아래쪽 여백 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 0px 104px;
+    gap: 80px;
+
+    /* Figma absolute는 제거하고 웹 방식으로 변환 */
+    width: 100%;
+    max-width: 1440px;
+    margin: 100px auto 0;  /* top: 886px → margin-top으로 변환 */
+
+    box-sizing: border-box;
 }
 
-/* inner가 피그마의 1440px + padding(104px) 영역 */
-.container > .inner {
-  width: 1440px;
-  padding: 0 104px; /* 피그마와 동일 */
-  display: flex;
-  flex-direction: column;
-  gap: 80px; /* Frame117 gap */
+/* 실제 내부 컨텐츠 영역 */
+.inner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }
 
-/* Section Header */
+/* -------------------------------
+   Section Header
+-------------------------------- */
 .section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;   /* 🔥 세로 가운데 정렬 */
 
-  h2 {
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 6px;
-  }
-
-  p {
-    font-size: 14px;
-    color: #666;
-  }
-
-  .btn-see-all {
-    background: #e9f3ff;
-    border: 1px solid #c5ddff;
-    padding: 8px 18px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: 0.2s;
-
-    &:hover {
-      background: #d6e8ff;
+    .text-box {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
     }
-  }
+
+    .btn-see-all {
+        padding: 10px 18px;
+        background: #00234d;
+        color: #fff;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.2s;
+    }
 }
 
-/* Swiper 전체 */
+
+
+
+/* -------------------------------
+   Swiper 영역
+-------------------------------- */
 .destinations-swiper {
-  width: 100%;
+    width: 100%;
+    padding-bottom: 40px; /* Pagination 공간 */
 
-  .swiper-wrapper {
-    padding-bottom: 40px;
-  }
+    .swiper-slide {
+        display: flex;
+        justify-content: center;
+    }
 
-  /* Pagination dots */
-  .swiper-pagination-bullet {
-    width: 10px;
-    height: 10px;
-    background: #ccc;
-    opacity: 1;
-  }
+    /* Navigation arrows */
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: #00234d;
+        transition: 0.2s;
 
-  .swiper-pagination-bullet-active {
-    background: #0a84ff; /* 피그마 색감 */
-  }
+        &:hover {
+            color: #001d3f;
+        }
+    }
 
-  /* Prev/Next 버튼 색 */
-  .swiper-button-prev,
-  .swiper-button-next {
-    color: #0a84ff;
-  }
+    /* Pagination bullets */
+    .swiper-pagination-bullet {
+        background: #ccc;
+        opacity: 1;
+    }
+
+    .swiper-pagination-bullet-active {
+        background: #00234d;
+    }
 }

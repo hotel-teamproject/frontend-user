@@ -1,5 +1,5 @@
 import React from "react";
-import Newsletter from "../home/Newsletter";
+import Newsletter from "./Newsletter";
 import { socialLinks, footerNavData } from "../../api/mockFooter";
 import "../../styles/components/common/Footer.scss";
 
