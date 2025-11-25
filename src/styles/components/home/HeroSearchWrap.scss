@@ -23,6 +23,7 @@
     border-radius: 16px;
 
     z-index: 10; /* Hero 위, Popular 아래 */
+
 }
 
 /* 내부 구조 — JSX 매칭 */
@@ -48,12 +49,13 @@
     label {
         font-size: 14px;
         font-weight: 500;
+        color: #279c79;
     }
-
+    
     input,
     select {
         padding: 10px 14px;
-        border: 1px solid #ddd;
+        border: 1px solid #279c79;
         border-radius: 8px;
         font-size: 14px;
         outline: none;
