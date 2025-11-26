@@ -58,7 +58,6 @@
 /* ================================
    🔥 2. ACCENT 버튼 (Sign Up)
    ================================ */
-/* 포인트 컬러지만 너무 튀지 않도록 같은 계열로 톤 맞춤 */
 .btn--accent {
   background: lighten(#279c79, 25%) !important;
   color: #fff !important;
@@ -121,6 +120,7 @@
 .btn--block {
   width: 100%;
 }
+
 .btn--link {
   background: transparent;
   border-color: transparent;
