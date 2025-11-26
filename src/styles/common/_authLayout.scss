@@ -1,0 +1,193 @@
+@import "./variables";
+
+// 공통 Auth/Form 레이아웃 스타일
+.auth-layout-page {
+  min-height: 100vh;
+  background: $color-bg;
+
+  .auth-layout-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .auth-layout-content {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+
+      .auth-layout-image-section {
+        display: none;
+      }
+    }
+  }
+
+  .auth-layout-form-section {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-xxxl $spacing-lg;
+    background: $color-bg;
+  }
+
+  .auth-layout-image-section {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+
+    /* 🔥 기존 파란색 그라데이션 → 그린 계열로 변경 */
+    background: linear-gradient(135deg, #2fb98d, #1f7d62);
+
+    .auth-layout-image-wrapper {
+      width: 100%;
+      height: 100%;
+      position: relative;
+
+      .auth-layout-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+  }
+}
+
+// 공통 폼 스타일
+.common-form {
+  width: 100%;
+  max-width: 42rem;
+  padding: 0;
+
+  .form-header,
+  .payment-header {
+    margin-bottom: $spacing-xxl;
+    text-align: left;
+
+    .back-button {
+      background: none;
+      border: none;
+      font-size: $font-size-sm;
+      color: darken(#279c79, 20%);  // 짙은 초록 회색 느낌
+      cursor: pointer;
+      margin-bottom: $spacing-md;
+      padding: 0;
+
+      &:hover {
+        color: #279c79;    // 메인 컬러
+        transition: color 0.2s ease;
+      }
+    }
+
+    .form-title,
+    .payment-title {
+        color: #279c79 !important;
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: $color-text;
+      margin-bottom: $spacing-xs;
+      line-height: $line-height-tight;
+    }
+
+    .form-subtitle,
+    .payment-subtitle {
+      font-size: $font-size-base;
+      color: darken(#279c79, 20%) !important; // 초록 계열 보조 텍스트
+      margin: 0;
+      line-height: $line-height-base;
+    }
+  }
+
+  .form-content {
+
+    .error-message {
+      background: #fee2e2;
+      color: #dc2626;
+      padding: $spacing-sm;
+      border-radius: $border-radius-md;
+      font-size: $font-size-sm;
+      margin-bottom: $spacing-lg;
+      border: 1px solid #fecaca;
+    }
+
+    .form-group {
+      margin-bottom: $spacing-xl;
+
+      .form-label {
+        display: block;
+        font-size: $font-size-sm;
+        font-weight: 500;
+        color: darken(#279c79, 30%);  // 짙은 보조 텍스트
+        margin-bottom: $spacing-xs;
+      }
+    }
+
+    .form-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: $spacing-xxl;
+
+      .checkbox-wrapper input[type="checkbox"] {
+        accent-color: #279c79; // 체크박스도 메인 컬러
+      }
+
+      .checkbox-label {
+        font-size: $font-size-sm;
+        color: darken(#279c79, 25%);
+      }
+
+      .forgot-password {
+        font-size: $font-size-sm;
+        color: #279c79;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    /* 🔥 버튼 색상 변경 */
+    .form-button {
+      width: 100%;
+      padding: $spacing-md;
+      background: #279c79;  // 메인 컬러
+      color: white;
+      border: none;
+      border-radius: $border-radius-md;
+      font-size: $font-size-base;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-bottom: $spacing-xl;
+
+      &:hover {
+        background: darken(#279c79, 10%);
+        transform: translateY(-1px);
+        box-shadow: $shadow-sm;
+      }
+    }
+
+    /* Divider 텍스트 색상 */
+    .divider-text {
+      background: $color-bg;
+      padding: 0 $spacing-md;
+      font-size: $font-size-sm;
+      color: darken(#279c79, 35%);
+    }
+
+    /* Social icon 색 유지 (브랜드 색이니까) */
+
+    .security-text {
+      font-size: 1.2rem;
+      color: darken(#279c79, 40%);
+      line-height: $line-height-base;
+      text-align: center;
+      margin: 0;
+    }
+  }
+}

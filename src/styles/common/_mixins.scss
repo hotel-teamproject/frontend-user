@@ -1,12 +1,18 @@
-@use "variables" as *;
+@import "variables";
 
-@mixin respond-md { @media (max-width: $breakpoint-md) { @content; } }
-
-@mixin shadow-soft { box-shadow: 0 4px 16px rgba(0,0,0,.08); }
-
-@mixin text-ellipsis($lines:1){
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: $lines;
-  -webkit-box-orient: vertical;
+@mixin shadow-soft {
+  box-shadow: $shadow-sm;
 }
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-center-space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
