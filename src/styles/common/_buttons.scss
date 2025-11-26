@@ -1,16 +1,16 @@
-@use "sass:color";     /* ✅ 추가 */
-@use "variables" as *;
-@use "mixins" as *;
+@use "sass:color";
+@import "variables";
+@import "mixins";
 
 /* 기본 버튼 */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 10px 16px;
-  border-radius: 10px;
-  border: 1px solid transparent;
+  gap: 0.8rem;
+  padding: 1rem 1.6rem;
+  border-radius: $border-radius-sm;
+  border: 0.1rem solid transparent;
   background: $color-bg;
   color: $color-secondary;
   font-weight: 600;
@@ -19,8 +19,12 @@
   transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   @include shadow-soft;
 
-  &:hover { filter: brightness(0.98); }
-  &:active { transform: translateY(1px); }
+  &:hover {
+    filter: brightness(0.98);
+  }
+  &:active {
+    transform: translateY(0.1rem);
+  }
 
   &:disabled,
   &[aria-disabled="true"] {
@@ -29,64 +33,102 @@
     box-shadow: none;
   }
 
-  > svg { width: 1.1em; height: 1.1em; flex: 0 0 auto; }
+  > svg {
+    width: 1.1em;
+    height: 1.1em;
+    flex: 0 0 auto;
+  }
 }
 
-/* 색상 변형 */
+/* ================================
+   🔥 1. PRIMARY 버튼 (Login)
+   ================================ */
 .btn--primary {
-  background: $color-primary;
-  color: #fff;
-  border-color: $color-primary;
+  background: #279c79 !important;
+  color: #fff !important;
+  border-color: #279c79 !important;
+  border-radius: $border-radius-sm;
 
   &:hover {
-    background: color.scale($color-primary, $lightness: -6%);   /* ✅ 변경 */
-    border-color: color.scale($color-primary, $lightness: -6%); /* ✅ 변경 */
+    background: darken(#279c79, 8%) !important;
+    border-color: darken(#279c79, 8%) !important;
   }
 }
 
-.btn--secondary {
-  background: $color-bg;
-  color: $color-secondary;
-  border-color: $color-border;
-  &:hover { background: $color-bg-alt; }
-}
-
+/* ================================
+   🔥 2. ACCENT 버튼 (Sign Up)
+   ================================ */
 .btn--accent {
-  background: $color-accent;
-  color: #fff;
-  border-color: $color-accent;
+  background: lighten(#279c79, 25%) !important;
+  color: #fff !important;
+  border-color: lighten(#279c79, 25%) !important;
+  border-radius: $border-radius-sm;
 
   &:hover {
-    background: color.scale($color-accent, $lightness: -6%);     /* ✅ 변경 */
+    background: lighten(#279c79, 15%) !important;
+    border-color: lighten(#279c79, 15%) !important;
   }
 }
 
-/* 스타일 변형 */
+/* SNS 버튼 */
+.btn--social {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+/* 아웃라인 */
 .btn--outline {
   background: transparent;
-  color: $color-primary;
-  border-color: $color-primary;
+  color: #279c79 !important;
+  border-color: #279c79 !important;
 
-  &:hover { background: rgba($color-primary, 0.08); }
+  &:hover {
+    background: rgba(#279c79, 0.08);
+  }
 }
 
+/* 고스트 */
 .btn--ghost {
   background: transparent;
   color: $color-secondary;
   border-color: transparent;
 
-  &:hover { background: $color-bg-alt; }
+  &:hover {
+    background: $color-bg-alt;
+  }
 }
 
-/* 크기/유틸 */
-.btn--sm { padding: 7px 12px; border-radius: 8px; font-size: 14px; }
-.btn--lg { padding: 12px 18px; border-radius: 12px; font-size: 18px; }
-.btn--block { width: 100%; }
+/* 사이즈 */
+.btn--sm {
+  padding: 0.7rem 1.2rem;
+  border-radius: 0.8rem;
+  font-size: 1.4rem;
+}
+.btn--lg {
+  padding: 1.2rem 1.8rem;
+  border-radius: 1.2rem;
+  font-size: 1.8rem;
+}
+.btn--block {
+  width: 100%;
+}
+
 .btn--link {
   background: transparent;
   border-color: transparent;
-  color: $color-primary;
+  color: #279c79 !important;
   padding: 0;
   box-shadow: none;
-  &:hover { text-decoration: underline; }
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

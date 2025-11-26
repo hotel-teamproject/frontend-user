@@ -1,14 +1,14 @@
 import React from "react";
-import LoginForm from "../../components/auth/LoginForm";
+import PaymentForm from "../../components/payment/PaymentForm";
 import AuthImageWrap from "../../components/auth/AuthImageWrap";
 
-const LoginPage = () => {
+const AddPaymentPage = () => {
   return (
     <div className="auth-layout-page">
       <div className="auth-layout-container">
         <div className="auth-layout-content">
           <div className="auth-layout-form-section">
-            <LoginForm />
+            <PaymentForm />
           </div>
           <div className="auth-layout-image-section">
             <AuthImageWrap />
@@ -19,4 +19,5 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default AddPaymentPage;
+

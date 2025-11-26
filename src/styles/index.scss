@@ -1,2 +1,15 @@
-// Main styles entry point
-@import "./common/index";
+// Reset & Base
+@import "./common/reset";
+@import "./common/variables";
+@import "./common/mixins";
+@import "./common/base";
+@import "./common/buttons";
+@import "./common/forms";
+
+// Layouts
+@import "./layouts/AuthPageLayout";
+@import "./common/authLayout";
+
+// Components
+@import "./components/authImageWrap";
+

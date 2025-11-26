@@ -1,10 +1,33 @@
-@use "variables" as *;
+@import "variables";
 
-@mixin respond-md { @media (max-width: $breakpoint-md) { @content; } }
+/* 부드러운 그림자 */
+@mixin shadow-soft {
+  box-shadow: $shadow-sm;
+}
 
-@mixin shadow-soft { box-shadow: 0 4px 16px rgba(0,0,0,.08); }
+/* 중앙 정렬 */
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-@mixin text-ellipsis($lines:1){
+/* 양쪽 정렬 + 가운데 맞춤 */
+@mixin flex-center-space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 반응형 - MD 이하 */
+@mixin respond-md {
+  @media (max-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+/* 말줄임 (멀티라인 지원) */
+@mixin text-ellipsis($lines: 1) {
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: $lines;
