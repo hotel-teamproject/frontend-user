@@ -83,4 +83,10 @@
     .swiper-pagination-bullet-active {
         background: #279c79;
     }
+
+}
+
+.destinations-swiper .swiper-button-next,
+.destinations-swiper .swiper-button-prev {
+    display: none;
 }

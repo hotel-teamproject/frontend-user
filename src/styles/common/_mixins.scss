@@ -12,24 +12,8 @@
   justify-content: center;
 }
 
-/* 양쪽 정렬 + 가운데 맞춤 */
 @mixin flex-center-space-between {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-/* 반응형 - MD 이하 */
-@mixin respond-md {
-  @media (max-width: $breakpoint-md) {
-    @content;
-  }
-}
-
-/* 말줄임 (멀티라인 지원) */
-@mixin text-ellipsis($lines: 1) {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: $lines;
-  -webkit-box-orient: vertical;
 }
