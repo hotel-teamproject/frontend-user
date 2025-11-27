@@ -1,6 +1,8 @@
 @import "./variables";
 
-// 공통 Auth/Form 레이아웃 스타일
+/* ================================
+   AUTH LAYOUT
+================================== */
 .auth-layout-page {
   min-height: 100vh;
   background: $color-bg;
@@ -55,7 +57,9 @@
   }
 }
 
-// 공통 폼 스타일
+/* ================================
+   FORM STYLE
+================================== */
 .common-form {
   width: 100%;
   max-width: 42rem;
