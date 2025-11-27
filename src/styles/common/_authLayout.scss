@@ -9,8 +9,45 @@
 
     .auth-layout-container {
         width: 100%;
+<<<<<<< HEAD
         margin: 0 auto;
         padding: 0;
+=======
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+  }
+}
+
+/* ================================
+   FORM STYLE
+================================== */
+.common-form {
+  width: 100%;
+  max-width: 42rem;
+  padding: 0;
+
+  .form-header,
+  .payment-header {
+    margin-bottom: $spacing-xxl;
+    text-align: left;
+
+    .back-button {
+      background: none;
+      border: none;
+      font-size: $font-size-sm;
+      color: $color-text-secondary;
+      cursor: pointer;
+      margin-bottom: $spacing-md;
+      padding: 0;
+
+      &:hover {
+        color: $color-primary;
+        transition: color 0.2s ease;
+      }
+>>>>>>> 25d63326e1e1330032e1a24e8b61f59ed25a6469
     }
 
     .auth-layout-content {

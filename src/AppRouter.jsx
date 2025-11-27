@@ -21,7 +21,11 @@ import BookingComplete from "./pages/booking/BookingComplete";
 
 import LoginPage from "./pages/auth/LoginPage";
 import SignupPage from "./pages/auth/SignupPage";
+<<<<<<< HEAD
 import BusinessSignupForm from "./components/auth/BusinessSignupForm";
+=======
+import BusinessSignupPage from "./pages/auth/BusinessSignupPage";
+>>>>>>> 25d63326e1e1330032e1a24e8b61f59ed25a6469
 import ResetPasswordPage from "./pages/auth/ResetPasswordPage";
 import KakaoCallbackPage from "./pages/auth/KakaoCallbackPage";
 import GoogleCallbackPage from "./pages/auth/GoogleCallbackPage";
@@ -95,6 +99,7 @@ const AppRouter = () => {
      <Route path="contact" element={<ContactPage />} />
     </Route>
 
+<<<<<<< HEAD
     {/* 마이페이지 - 로그인 필요 */}
     <Route
      path="mypage"
@@ -111,6 +116,15 @@ const AppRouter = () => {
       <Route path=":bookingId" element={<MyBookingDetailPage />} />
      </Route>
      <Route path="payment" element={<MyPaymentPage />} />
+=======
+        {/* 인증 레이아웃: 헤더 최소, 센터 정렬 등 */}
+        <Route element={<AuthLayout />}>
+          <Route path="login" element={<LoginPage />} />
+          <Route path="signup" element={<SignupPage />} />
+          <Route path="business-signup" element={<BusinessSignupPage />} />
+          <Route path="reset-password" element={<ResetPasswordPage />} />
+          <Route path="add-payment" element={<AddPaymentPage />} />
+>>>>>>> 25d63326e1e1330032e1a24e8b61f59ed25a6469
 
      {/* 기존 라우트들 (필요시 제거 가능) */}
      <Route path="profile" element={<ProfilePage />} />
