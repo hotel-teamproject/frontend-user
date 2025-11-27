@@ -20,6 +20,7 @@ import BookingComplete from "./pages/booking/BookingComplete";
 
 import LoginPage from "./pages/auth/LoginPage";
 import SignupPage from "./pages/auth/SignupPage";
+import BusinessSignupPage from "./pages/auth/BusinessSignupPage";
 import ResetPasswordPage from "./pages/auth/ResetPasswordPage";
 import KakaoCallbackPage from "./pages/auth/KakaoCallbackPage";
 import GoogleCallbackPage from "./pages/auth/GoogleCallbackPage";
@@ -118,6 +119,7 @@ const AppRouter = () => {
         <Route element={<AuthLayout />}>
           <Route path="login" element={<LoginPage />} />
           <Route path="signup" element={<SignupPage />} />
+          <Route path="business-signup" element={<BusinessSignupPage />} />
           <Route path="reset-password" element={<ResetPasswordPage />} />
           <Route path="add-payment" element={<AddPaymentPage />} />
 

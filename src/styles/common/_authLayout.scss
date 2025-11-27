@@ -1,314 +1,236 @@
 @import "./variables";
 
-// 공통 Auth/Form 레이아웃 스타일
+/* ================================
+   AUTH LAYOUT
+================================== */
 .auth-layout-page {
- min-height: 100vh;
- background: $color-bg;
-
- .auth-layout-container {
-  width: 100%;
-  margin: 0 auto;
-  padding: 0;
- }
-
- .auth-layout-content {
-  display: flex;
-  width: 100%;
   min-height: 100vh;
-
-  @media (max-width: $breakpoint-md) {
-   flex-direction: column;
-
-   .auth-layout-image-section {
-    display: none;
-   }
-  }
- }
-
- .auth-layout-form-section {
-  display: flex;
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-  padding: $spacing-xxxl $spacing-lg;
   background: $color-bg;
- }
 
- .auth-layout-image-section {
-  flex: 1;
-  position: relative;
-  overflow: hidden;
-  background: $gradient-gray-medium;
-
-  .auth-layout-image-wrapper {
-   width: 100%;
-   height: 100%;
-   position: relative;
-
-   .auth-layout-image {
+  .auth-layout-container {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-   }
+    margin: 0 auto;
   }
- }
+
+  .auth-layout-content {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+
+      .auth-layout-image-section {
+        display: none;
+      }
+    }
+  }
+
+  .auth-layout-form-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.2rem !important;
+    background: $color-bg;
+  }
+
+  .auth-layout-image-section {
+    flex: 1;
+    background: $gradient-gray-medium;
+  }
 }
 
-// 공통 폼 스타일
+/* ================================
+   FORM STYLE
+================================== */
 .common-form {
- width: 100%;
- max-width: 42rem;
- padding: 0;
+  width: 100%;
+  max-width: 420px;
 
-  .form-header,
-  .payment-header {
-   margin-bottom: $spacing-xxl;
-   text-align: left;
+  .form-header {
+    margin-bottom: 1.6rem !important;
 
-   .back-button {
-    background: none;
-    border: none;
-    font-size: $font-size-sm;
-    color: $color-text-secondary;
-    cursor: pointer;
-    margin-bottom: $spacing-md;
-    padding: 0;
-
-    &:hover {
-     color: $color-primary;
-     transition: color 0.2s ease;
-    }
-   }
-
-   .form-title,
-   .payment-title {
-    font-size: 3.2rem;
-    font-weight: 700;
-    color: #279c79;
-    margin-bottom: $spacing-xs;
-    line-height: $line-height-tight;
-   }
-
-   .form-subtitle,
-   .payment-subtitle {
-    font-size: $font-size-base;
-    color: $color-text-secondary;
-    margin: 0;
-    line-height: $line-height-base;
-   }
-  }
-
- .form-content {
-  .error-message {
-   background: #fee2e2;
-   color: #dc2626;
-   padding: $spacing-sm;
-   border-radius: $border-radius-md;
-   font-size: $font-size-sm;
-   margin-bottom: $spacing-lg;
-   border: 1px solid #fecaca;
-  }
-
-  .form-row {
-   display: grid;
-   grid-template-columns: 1fr;
-   gap: $spacing-md;
-   margin-bottom: $spacing-xl;
-
-   @media (min-width: 768px) {
-    grid-template-columns: 1fr 1fr;
-   }
-  }
-
-  .form-group {
-   margin-bottom: $spacing-xl;
-
-   .form-row & {
-    margin-bottom: 0;
-   }
-
-   .form-label {
-    display: block;
-    font-size: $font-size-sm;
-    font-weight: 500;
-    color: $color-text;
-    margin-bottom: $spacing-xs;
-   }
-
-
-   .form-select {
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-    background-position: right $spacing-sm center;
-    background-repeat: no-repeat;
-    background-size: 1.6rem;
-    cursor: pointer;
-   }
-
-   .password-input-wrapper {
-    position: relative;
-
-    .password-toggle {
-     position: absolute;
-     right: $spacing-md;
-     top: 50%;
-     transform: translateY(-50%);
-     background: none;
-     border: none;
-     font-size: $font-size-base;
-     color: $color-text-muted;
-     cursor: pointer;
-     padding: 0;
-    }
-   }
-  }
-
-  .form-options {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   margin-bottom: $spacing-xxl;
-
-   .checkbox-wrapper {
-    display: flex;
-    align-items: flex-start;
-    cursor: pointer;
-
-    input[type="checkbox"] {
-     margin-right: $spacing-xs;
-     margin-top: 0.2rem;
-     width: 1.6rem;
-     height: 1.6rem;
-     flex-shrink: 0;
+    .form-title {
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: #279c79;
+      margin-bottom: 0.4rem;
     }
 
-    .checkbox-label {
-     font-size: $font-size-sm;
-     color: $color-text-secondary;
-     line-height: $line-height-base;
+    .form-subtitle {
+      font-size: 1.4rem;
+      color: darken(#279c79, 25%);
     }
-   }
+  }
 
-   .forgot-password {
-    font-size: $font-size-sm;
-    color: $color-primary;
-    text-decoration: none;
-
-    &:hover {
-     text-decoration: underline;
+  .form-content {
+    /* ERROR BOX */
+    .error-message {
+      background: #fee2e2;
+      color: #dc2626;
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid #fecaca;
+      margin-bottom: 1rem !important;
     }
-   }
 
-   &.form-options-between {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-   }
-  }
+    /* FORM GROUP */
+    .form-group {
+      margin-bottom: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
 
-  .form-button {
-   width: 100%;
-   padding: $spacing-md;
-   background: $gradient-gray-medium;
-   color: white;
-   border: none;
-   border-radius: $border-radius-md;
-   font-size: $font-size-base;
-   font-weight: 600;
-   cursor: pointer;
-   transition: all 0.2s ease;
-   margin-bottom: $spacing-xl;
+      .form-label {
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: darken(#279c79, 30%);
+      }
 
-   &:hover {
-    background: $gradient-gray-dark;
-    transform: translateY(-1px);
-    box-shadow: $shadow-sm;
-   }
-  }
+      input,
+      select {
+        width: 100%;
+        padding: 1.2rem;
+        border: 1px solid #279c79 !important;
+        border-radius: 8px;
+        font-size: 1.5rem;
+      }
 
-  .divider {
-   text-align: center;
-   margin: $spacing-xl 0;
-   position: relative;
+      .password-input-wrapper {
+        position: relative;
 
-   &::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: $color-border;
-   }
+        .password-toggle {
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          background: none;
+          border: none;
+          cursor: pointer;
+          color: darken(#279c79, 25%);
+        }
+      }
+    }
 
-   .divider-text {
-    background: $color-bg;
-    padding: 0 $spacing-md;
-    font-size: $font-size-sm;
-    color: $color-text-muted;
-   }
-  }
+    /* OPTIONS */
+    .form-options {
+      margin-bottom: 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
-  .social-login {
-   .social-login-text {
-    text-align: center;
-    font-size: $font-size-sm;
-    color: $color-text-muted;
-    margin-bottom: $spacing-md;
-   }
+      .checkbox-wrapper input[type="checkbox"] {
+        accent-color: #279c79;
+      }
 
-   .social-buttons {
-    display: flex;
-    gap: $spacing-sm;
-    justify-content: center;
+      .checkbox-label {
+        font-size: 1.4rem;
+        color: darken(#279c79, 25%);
+      }
 
-    .btn--social {
-     width: 4.8rem;
-     height: 4.8rem;
-     border-radius: 50%;
-     border: $border;
-     background: $color-bg;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     cursor: pointer;
-     transition: all 0.2s ease;
-     padding: 0;
+      .forgot-password {
+        font-size: 1.4rem;
+        color: #279c79;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
 
-     &:hover {
-      transform: translateY(-1px);
-      box-shadow: $shadow-sm;
-     }
-
-     .social-icon {
-      font-size: 2rem;
+    /* ================================
+       ⭐ 버튼 기본 규칙(통일)
+    ================================= */
+    .btn {
+      width: 100%;
+      height: 50px !important;
+      padding: 0 !important;
+      border-radius: 8px;
+      font-size: 1.55rem;
       font-weight: 600;
-     }
-
-     &.facebook .social-icon {
-      color: #1877f2;
-     }
-
-     &.google .social-icon {
-      color: #ea4335;
-     }
-
-     &.apple .social-icon {
-      color: #000;
-     }
+      border: 1px solid #279c79;
+      line-height: 50px !important;
+      cursor: pointer;
+      transition: 0.2s ease;
+      margin-bottom: 12px;
+      text-align: center;
+      display: block;
     }
-   }
-  }
 
-  .security-info {
-   .security-text {
-    font-size: 1.2rem;
-    color: $color-text-muted;
-    line-height: $line-height-base;
-    text-align: center;
-    margin: 0;
-   }
+    /* Variant들 */
+    .btn--primary {
+      background: #279c79 !important;
+      color: #fff;
+    }
+
+    .btn--accent {
+      background: lighten(#279c79, 32%);
+      color: #279c79;
+    }
+
+    .btn--outline {
+      background: #fff;
+      color: #279c79;
+    }
+
+    /* ================================
+       ⭐ 가로 2분할 버튼
+    ================================= */
+    .signup-dual-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 1.6rem;
+
+  .btn {
+    flex: 1;
+    height: 50px !important;
+    line-height: 50px !important;
+    margin-top: 0 !important;   /* ★ 여기! 버튼 간격 강제 통일 */
   }
- }
+}   
+
+    /* DIVIDER */
+    .divider {
+      margin: 1.6rem 0 !important;
+      text-align: center;
+
+      .divider-text {
+        padding: 0 0.8rem;
+        background: #fff;
+        color: darken(#279c79, 30%);
+      }
+    }
+
+    /* SOCIAL */
+    .social-login {
+      text-align: center;
+
+      .social-login-text {
+        color: darken(#279c79, 30%);
+        margin-bottom: 1rem;
+      }
+
+      .social-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+
+        .btn--social {
+          width: 44px;
+          height: 44px;
+          background: #fff;
+          border: 1px solid #279c79;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 2rem;
+
+          &:hover {
+            background: rgba(#279c79, 0.08);
+          }
+        }
+      }
+    }
+  }
 }
