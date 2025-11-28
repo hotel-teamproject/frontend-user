@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainLayout from "./components/layouts/MainLayout";
 import AuthLayout from "./components/layouts/AuthLayout";
 import MyPageLayout from "./components/layouts/MyPageLayout";
+import SearchLayout from "./components/layouts/SearchLayout";
 import ProtectedRoute from "./components/common/ProtectedRoute";
 import AddPaymentPage from "./pages/payment/AddPaymentPage";
 
@@ -48,17 +49,20 @@ const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {/* main landing */}
+        {/* 메인 레이아웃 */}
         <Route path="/" element={<MainLayout />}>
-          {/* 검색 / 리스트 */}
           <Route index element={<HomePage />} />
 
-          <Route path="search" element={<SearchPage />} />
+          {/* 호텔 리스트 / 상세 */}
           <Route path="hotels">
             <Route index element={<HotelListPage />} />
             <Route path=":hotelId" element={<HotelDetailPage />} />
           </Route>
+
+          {/* 검색 */}
+          <Route path="search" element={<SearchPage />} />
         </Route>
+
         {/* 예약 플로우 - 로그인 필요 */}
         <Route
           path="booking/:hotelId"
@@ -68,19 +72,14 @@ const AppRouter = () => {
             </ProtectedRoute>
           }
         >
-          {/* /booking/:hotelId */}
           <Route index element={<BookingStepDates />} />
-          {/* /booking/:hotelId/room */}
           <Route path="room" element={<BookingStepRoom />} />
-          {/* /booking/:hotelId/extras */}
           <Route path="extras" element={<BookingStepExtras />} />
-          {/* /booking/:hotelId/payment */}
           <Route path="payment" element={<BookingStepPayment />} />
-          {/* /booking/:hotelId/complete */}
           <Route path="complete" element={<BookingComplete />} />
         </Route>
 
-        {/* 고객센터 / 공지 / FAQ / 문의 */}
+        {/* 고객센터 */}
         <Route path="support">
           <Route index element={<FaqPage />} />
           <Route path="faq" element={<FaqPage />} />
@@ -100,13 +99,13 @@ const AppRouter = () => {
         >
           <Route index element={<MyAccountPage />} />
           <Route path="account" element={<MyAccountPage />} />
+
           <Route path="bookings">
             <Route index element={<MyBookingsPage />} />
             <Route path=":bookingId" element={<MyBookingDetailPage />} />
           </Route>
-          <Route path="payment" element={<MyPaymentPage />} />
 
-          {/* 기존 라우트들 (필요시 제거 가능) */}
+          <Route path="payment" element={<MyPaymentPage />} />
           <Route path="profile" element={<ProfilePage />} />
           <Route path="reviews" element={<MyReviewsPage />} />
           <Route path="wishlist" element={<WishlistPage />} />
@@ -115,15 +114,13 @@ const AppRouter = () => {
           <Route path="inquiries" element={<MyInquiriesPage />} />
         </Route>
 
-        {/* 인증 레이아웃: 헤더 최소, 센터 정렬 등 */}
+        {/* 인증 레이아웃 */}
         <Route element={<AuthLayout />}>
           <Route path="login" element={<LoginPage />} />
           <Route path="signup" element={<SignupPage />} />
           <Route path="business-signup" element={<BusinessSignupPage />} />
           <Route path="reset-password" element={<ResetPasswordPage />} />
           <Route path="add-payment" element={<AddPaymentPage />} />
-
-          {/* 소셜 로그인 콜백 (카카오, 구글) */}
           <Route path="oauth">
             <Route path="kakao/callback" element={<KakaoCallbackPage />} />
             <Route path="google/callback" element={<GoogleCallbackPage />} />

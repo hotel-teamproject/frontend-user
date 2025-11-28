@@ -9,8 +9,9 @@
 
   .auth-layout-container {
     width: 100%;
-    margin: 0 auto;
-    padding: 0;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 
   .auth-layout-content {
@@ -28,32 +29,17 @@
   }
 
   .auth-layout-form-section {
-    display: flex;
     flex: 1;
+    display: flex;
     align-items: center;
     justify-content: center;
-    padding: $spacing-xxxl $spacing-lg;
+    padding: 2rem 1.2rem !important;
     background: $color-bg;
   }
 
   .auth-layout-image-section {
     flex: 1;
-    position: relative;
-    overflow: hidden;
     background: $gradient-gray-medium;
-
-    .auth-layout-image-wrapper {
-      width: 100%;
-      height: 100%;
-      position: relative;
-
-      .auth-layout-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-      }
-    }
   }
 }
 
@@ -84,69 +70,38 @@
         transition: color 0.2s ease;
       }
     }
-
-    .form-title,
-    .payment-title {
-      font-size: 3.2rem;
-      font-weight: 700;
-      color: #279c79;
-      margin-bottom: $spacing-xs;
-      line-height: $line-height-tight;
-    }
-
-    .form-subtitle,
-    .payment-subtitle {
-      font-size: $font-size-base;
-      color: $color-text-secondary;
-      margin: 0;
-      line-height: $line-height-base;
-    }
   }
 
   .form-content {
+    /* ERROR */
     .error-message {
       background: #fee2e2;
       color: #dc2626;
-      padding: $spacing-sm;
-      border-radius: $border-radius-md;
-      font-size: $font-size-sm;
-      margin-bottom: $spacing-lg;
+      padding: 0.8rem;
+      border-radius: 8px;
       border: 1px solid #fecaca;
+      margin-bottom: 1rem;
     }
 
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: $spacing-md;
-      margin-bottom: $spacing-xl;
-
-      @media (min-width: 768px) {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
+    /* GROUP */
     .form-group {
-      margin-bottom: $spacing-xl;
-
-      .form-row & {
-        margin-bottom: 0;
-      }
+      margin-bottom: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
 
       .form-label {
-        display: block;
-        font-size: $font-size-sm;
+        font-size: 1.4rem;
         font-weight: 500;
-        color: $color-text;
-        margin-bottom: $spacing-xs;
+        color: darken(#279c79, 30%);
       }
 
-      .form-select {
-        appearance: none;
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-        background-position: right $spacing-sm center;
-        background-repeat: no-repeat;
-        background-size: 1.6rem;
-        cursor: pointer;
+      input {
+        width: 100%;
+        padding: 1.2rem;
+        border: 1px solid #279c79 !important;
+        border-radius: 8px;
+        font-size: 1.5rem;
       }
 
       .password-input-wrapper {
@@ -154,163 +109,132 @@
 
         .password-toggle {
           position: absolute;
-          right: $spacing-md;
+          right: 10px;
           top: 50%;
           transform: translateY(-50%);
           background: none;
           border: none;
-          font-size: $font-size-base;
-          color: $color-text-muted;
           cursor: pointer;
-          padding: 0;
+          color: darken(#279c79, 25%);
         }
       }
     }
 
+    /* OPTIONS */
     .form-options {
+      margin-bottom: 1.4rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: $spacing-xxl;
 
-      .checkbox-wrapper {
-        display: flex;
-        align-items: flex-start;
-        cursor: pointer;
+      input[type="checkbox"] {
+        accent-color: #279c79;
+      }
 
-        input[type="checkbox"] {
-          margin-right: $spacing-xs;
-          margin-top: 0.2rem;
-          width: 1.6rem;
-          height: 1.6rem;
-          flex-shrink: 0;
-        }
-
-        .checkbox-label {
-          font-size: $font-size-sm;
-          color: $color-text-secondary;
-          line-height: $line-height-base;
-        }
+      .checkbox-label {
+        font-size: 1.4rem;
+        color: darken(#279c79, 25%);
       }
 
       .forgot-password {
-        font-size: $font-size-sm;
-        color: $color-primary;
-        text-decoration: none;
+        font-size: 1.4rem;
+        color: #279c79;
 
         &:hover {
           text-decoration: underline;
         }
       }
-
-      &.form-options-between {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
     }
 
-    .form-button {
+    /* BUTTONS */
+    .btn {
       width: 100%;
-      padding: $spacing-md;
-      background: $gradient-gray-medium;
-      color: white;
-      border: none;
-      border-radius: $border-radius-md;
-      font-size: $font-size-base;
+      height: 50px !important;
+      border-radius: 8px;
+      font-size: 1.55rem;
       font-weight: 600;
+      border: 1px solid #279c79;
       cursor: pointer;
-      transition: all 0.2s ease;
-      margin-bottom: $spacing-xl;
+      margin-bottom: 12px;
+      transition: 0.2s ease;
 
-      &:hover {
-        background: $gradient-gray-dark;
-        transform: translateY(-1px);
-        box-shadow: $shadow-sm;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+
+      line-height: normal !important;
+    }
+
+    .btn--primary {
+      background: #279c79 !important;
+      color: #fff;
+    }
+
+    .btn--accent {
+      background: lighten(#279c79, 32%);
+      color: #279c79;
+    }
+
+    .btn--outline {
+      background: #fff;
+      color: #279c79;
+    }
+
+    /* ⭐ 2분할 버튼 */
+    .signup-dual-buttons {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 1.6rem;
+
+      .btn {
+        flex: 1;
+        margin-top: 0 !important;
+        height: 50px !important;
+        line-height: 50px !important;
       }
     }
 
+    /* DIVIDER */
     .divider {
+      margin: 1.6rem 0;
       text-align: center;
-      margin: $spacing-xl 0;
-      position: relative;
-
-      &::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 0;
-        right: 0;
-        height: 1px;
-        background: $color-border;
-      }
 
       .divider-text {
-        background: $color-bg;
-        padding: 0 $spacing-md;
-        font-size: $font-size-sm;
-        color: $color-text-muted;
+        background: #fff;
+        padding: 0 0.8rem;
+        color: darken(#279c79, 30%);
       }
     }
 
+    /* SOCIAL */
     .social-login {
+      text-align: center;
+
       .social-login-text {
-        text-align: center;
-        font-size: $font-size-sm;
-        color: $color-text-muted;
-        margin-bottom: $spacing-md;
+        color: darken(#279c79, 30%);
+        margin-bottom: 1rem;
       }
 
       .social-buttons {
         display: flex;
-        gap: $spacing-sm;
         justify-content: center;
+        gap: 1rem;
 
         .btn--social {
-          width: 4.8rem;
-          height: 4.8rem;
+          width: 44px;
+          height: 44px;
+          background: #fff;
+          border: 1px solid #279c79;
           border-radius: 50%;
-          border: $border;
-          background: $color-bg;
           display: flex;
           align-items: center;
           justify-content: center;
-          cursor: pointer;
-          transition: all 0.2s ease;
-          padding: 0;
+          font-size: 2rem;
 
           &:hover {
-            transform: translateY(-1px);
-            box-shadow: $shadow-sm;
-          }
-
-          .social-icon {
-            font-size: 2rem;
-            font-weight: 600;
-          }
-
-          &.facebook .social-icon {
-            color: #1877f2;
-          }
-
-          &.google .social-icon {
-            color: #ea4335;
-          }
-
-          &.apple .social-icon {
-            color: #000;
+            background: rgba(#279c79, 0.08);
           }
         }
-      }
-    }
-
-    .security-info {
-      .security-text {
-        font-size: 1.2rem;
-        color: $color-text-muted;
-        line-height: $line-height-base;
-        text-align: center;
-        margin: 0;
       }
     }
   }
