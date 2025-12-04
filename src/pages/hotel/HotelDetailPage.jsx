@@ -8,17 +8,11 @@ import HotelMap from "../../components/hotelpage/HotelMap";
 import HotelOverview from "../../components/hotelpage/HotelOverview";
 import HotelReviews from "../../components/hotelpage/HotelReviews";
 import "../../styles/pages/hotelpage/HotelDetailPage.scss";
-import {
-  getHotels,
-  getHotelDetail,
-  getHotelRooms,
-} from "../../api/hotelClient";
-import {
-  getReviews,
-  createReview,
-  updateReview,
-  deleteReview,
-} from "../../api/reviewClient";
+
+// 🔹 백엔드 연동 전까지는 목업 데이터로 화면을 먼저 구현
+import { mockHotelDetail } from "../../api/mockHotelDetail";
+import { mockHotelRooms } from "../../api/mockHotelRooms";
+import { mockReviews } from "../../api/mockReviews";
 const HotelDetailPage = () => {
   const { hotelId } = useParams(); // URL에서 호텔 ID 추출
   const [hotel, setHotel] = useState(null);
@@ -28,28 +22,19 @@ const HotelDetailPage = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    const fetchHotelData = async () => {
-      try {
-        setLoading(true);
-        // 호텔 상세 정보와 객실 정보를 병렬로 가져오기
-        const [hotelData, roomsData, reviewsData] = await Promise.all([
-          getHotelDetail(hotelId),
-          getHotelRooms(hotelId),
-          getReviews(hotelId),
-        ]);
-        setHotel(hotelData.hotel);
-        setRooms(roomsData);
-        setReviews(reviewsData);
-      } catch (err) {
-        setError(err.message);
-        console.error("Failed to fetch hotel data:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (hotelId) {
-      fetchHotelData();
+    // TODO: 백엔드 연동 시 실제 API(getHotelDetail, getHotelRooms, getReviews)로 교체
+    try {
+      setLoading(true);
+      // 현재는 hotelId와 상관없이 동일한 목업 데이터를 사용
+      setHotel(mockHotelDetail);
+      setRooms(mockHotelRooms);
+      setReviews(mockReviews);
+      setError(null);
+    } catch (err) {
+      console.error("Failed to load mock hotel data:", err);
+      setError("호텔 정보를 불러오지 못했습니다.");
+    } finally {
+      setLoading(false);
     }
   }, [hotelId]);
 
@@ -90,11 +75,7 @@ const HotelDetailPage = () => {
         hotelId={hotelId}
         rating={hotel.ratingAverage}
         reviewCount={hotel.ratingCount}
-        createReview={createReview}
-        updateReview={updateReview}
-        deleteReview={deleteReview}
         reviews={reviews}
-        getReviews={getReviews}
       />
     </div>
   );
