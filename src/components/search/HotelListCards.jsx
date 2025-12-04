@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/components/search/HotelListCards.scss";
 
 const HotelListCards = ({ hotels = [] }) => {
   const navigate = useNavigate();
+  const [wishlist, setWishlist] = useState(new Set());
+
+  const handleToggleWishlist = (e, hotelId) => {
+    e.stopPropagation();
+    setWishlist((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(hotelId)) {
+        newSet.delete(hotelId);
+      } else {
+        newSet.add(hotelId);
+      }
+      return newSet;
+    });
+    // 실제 구현 시에는 여기서 API 호출 또는 localStorage 저장
+    // localStorage.setItem('wishlist', JSON.stringify(Array.from(newSet)));
+  };
 
   if (!hotels || hotels.length === 0) {
     return (
@@ -15,6 +31,7 @@ const HotelListCards = ({ hotels = [] }) => {
     <div className="hotel-list-cards">
       {hotels.map((hotel, i) => {
         const price = hotel.basePrice ?? hotel.price ?? 0;
+        const isWishlisted = wishlist.has(hotel.id);
 
         return (
           <div
@@ -67,10 +84,11 @@ const HotelListCards = ({ hotels = [] }) => {
               {/* -------- BOTTOM BUTTONS -------- */}
               <div className="hotel-footer">
                 <button
-                  className="wishlist-button"
-                  onClick={(e) => e.stopPropagation()}
+                  className={`wishlist-button ${isWishlisted ? "active" : ""}`}
+                  onClick={(e) => handleToggleWishlist(e, hotel.id)}
+                  title={isWishlisted ? "찜 해제" : "찜하기"}
                 >
-                  ❤️
+                  {isWishlisted ? "❤️" : "🤍"}
                 </button>
 
                 <button

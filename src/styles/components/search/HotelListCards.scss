@@ -194,10 +194,22 @@
   border: 1px solid #24a889;
   background: #fff;
   font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
 
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &:hover {
+    background: #f0f9f7;
+    transform: scale(1.05);
+  }
+
+  &.active {
+    background: #ffe5e5;
+    border-color: #ff6b6b;
+  }
 }
 
 /* View Place 버튼 */
