@@ -96,3 +96,4 @@ const WishlistCard = ({ hotel, onRemove }) => {
 
 export default WishlistCard;
 
+

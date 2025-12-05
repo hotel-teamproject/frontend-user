@@ -24,3 +24,4 @@ const WishlistEmpty = () => {
 
 export default WishlistEmpty;
 
+
