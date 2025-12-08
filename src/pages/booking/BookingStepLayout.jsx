@@ -1,11 +1,24 @@
+import Header from "../../components/common/Header";
+import Footer from "../../components/common/Footer";
+import StepNavigation from "./StepNavigation";
+import "../../styles/pages/booking/BookingStepLayout.scss";
 import { Outlet } from "react-router-dom";
 
 const BookingStepLayout = () => {
   return (
-    <div>
-      <div>{/* 예약 단계 표시 */}</div>
-      <Outlet />
-    </div>
+    <>
+      <Header />
+
+      <div className="booking-layout">
+        <StepNavigation />
+
+        <div className="booking-content">
+          <Outlet />
+        </div>
+      </div>
+
+      <Footer />
+    </>
   );
 };
 
