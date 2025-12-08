@@ -23,22 +23,6 @@
     z-index: 5;
 }
 
-/* =========================================================
-   ========== MyPage에서는 겹치지 않게 배너 내리기 ==========
-   ========================================================= */
-
-/* 마이페이지 레이아웃 안에서는 footer 상단 여백을 줄이고,
-   newsletter를 일반 흐름(static)으로 내려서 겹침 제거 */
-.mypage-layout .footer {
-    padding-top: 80px;
-}
-
-.mypage-layout .footer .newsletter-wrapper {
-    position: static;
-    top: auto;
-    margin-top: 24px;
-}
-
 .newsletter {
     width: 88%;
     max-width: 1000px;

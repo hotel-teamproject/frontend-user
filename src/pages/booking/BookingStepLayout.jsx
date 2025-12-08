@@ -2,6 +2,7 @@ import Header from "../../components/common/Header";
 import Footer from "../../components/common/Footer";
 import StepNavigation from "./StepNavigation";
 import "../../styles/pages/booking/BookingStepLayout.scss";
+import FloatingNav from "../../components/common/FloatingNav";
 import { Outlet } from "react-router-dom";
 
 const BookingStepLayout = () => {
@@ -18,6 +19,7 @@ const BookingStepLayout = () => {
       </div>
 
       <Footer />
+      <FloatingNav />
     </>
   );
 };

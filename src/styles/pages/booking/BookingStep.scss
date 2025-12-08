@@ -2,10 +2,10 @@
    Booking Page Wrapper
 =========================== */
 .booking-page.inner {
-  max-width: 1200px;
-  margin: 32px auto 80px;
-  padding: 0 24px;
-  min-height: 100vh; 
+  max-width: 1280px;
+  margin: 24px auto 64px;
+  padding: 0 24px 140px; /* footer 겹침 방지 */
+  min-height: auto;
 }
 
 /* ===========================
@@ -24,9 +24,9 @@
 =========================== */
 .booking-grid {
   display: grid;
-  grid-template-columns: 1fr 360px;
-  gap: 32px;
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr) 420px;
+  gap: 24px;
+  align-items: stretch;
 }
 
 /* ===========================
@@ -35,18 +35,79 @@
 .booking-left {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+  height: 100%;
+}
+
+.bottom-group {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.booking-section {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 14px 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.section-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0b6b63;
+  margin: 0 0 10px;
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #425154;
+  font-size: 14px;
+}
+
+.info-list li::before {
+  content: "•";
+  color: #0b6b63;
+  margin-right: 6px;
+}
+
+.muted {
+  color: #7a8b87;
+  font-size: 13px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #e6f4ef;
+  color: #0b6b63;
+  font-weight: 600;
+  font-size: 12px;
 }
 
 .booking-panel {
-  background: #fff;
-  padding: 26px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  background: transparent;
+  padding: 4px;
+  border-radius: 12px;
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+  gap: 18px;
 }
 
 .booking-panel label {
@@ -116,14 +177,16 @@
 
 .booking-right {
   position: sticky;
-  top: 120px;
+  top: 80px;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
 }
 
 /* 카드 전체 */
 .hotel-summary {
-  width: 360px;
+  width: 380px;
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 10px 26px rgba(0,0,0,0.08);
@@ -135,7 +198,8 @@
 /* 상단 전체 이미지 */
 .hotel-image {
   width: 100%;
-  height: 200px;
+  aspect-ratio: 16 / 9;
+  height: auto;
   overflow: hidden;
 }
 
@@ -143,7 +207,159 @@
   width: 100%;
   height: 100%;
   object-fit: cover;             /* 이미지 꽉 차게 */
+  object-position: center;
   display: block;
+}
+
+/* ===========================
+   공통 Summary Card
+=========================== */
+.booking-summary-card {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.booking-summary-card .summary-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.booking-summary-card .summary-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.booking-summary-card .summary-body {
+  padding: 16px 18px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.summary-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  color: #0b6b63;
+}
+
+.summary-location {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.summary-rating {
+  font-size: 14px;
+  color: #444;
+}
+
+.summary-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 12px 18px 6px;
+  background: #f7fbfa;
+}
+
+.summary-details strong {
+  display: block;
+  font-size: 13px;
+  color: #666;
+}
+
+.summary-details p {
+  margin: 4px 0 0;
+  font-weight: 700;
+  color: #0b6b63;
+  font-size: 14px;
+}
+
+.summary-price-box {
+  padding: 14px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid #eef2f1;
+}
+
+.summary-price-box .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.summary-price-box .row.total {
+  font-weight: 800;
+  color: #0b6b63;
+}
+
+.summary-action {
+  width: 100%;
+  margin-top: 12px;
+}
+
+/* ===========================
+   Payment & card list mimic
+=========================== */
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid #dfe4ea;
+  border-radius: 10px;
+  background: #f7fbfa;
+  font-size: 14px;
+}
+
+.card-list-box {
+  border: 1px dashed #c7d6d1;
+  border-radius: 10px;
+  padding: 16px;
+  min-height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7a8b87;
+  font-size: 14px;
+  background: #fcfefd;
+}
+
+.payment-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.payment-form-grid .full {
+  grid-column: span 2;
+}
+
+.payment-form-grid input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #dfe4ea;
+  font-size: 14px;
 }
 
 /* 내용 */
@@ -195,6 +411,206 @@
 }
 
 /* ===========================
+   Room Cards
+=========================== */
+.room-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.room-card {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 16px;
+  align-items: center;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  padding: 12px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all .2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+  }
+
+  &.active {
+    border-color: #0b6b63;
+    box-shadow: 0 12px 28px rgba(11, 107, 99, 0.18);
+  }
+}
+
+.room-image {
+  width: 100%;
+  height: 140px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.room-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.room-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.room-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #0b6b63;
+  }
+
+  .room-type {
+    font-size: 13px;
+    color: #666;
+    background: #f2f7f6;
+    padding: 4px 8px;
+    border-radius: 8px;
+  }
+}
+
+.room-price {
+  font-size: 18px;
+  font-weight: 800;
+  color: #e84b6b;
+}
+
+/* ===========================
+   Extras
+=========================== */
+.extras-list {
+  grid-template-columns: 1fr !important;
+}
+
+.extra-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 12px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  cursor: pointer;
+  transition: background .2s ease, border-color .2s ease;
+
+  &:hover {
+    background: #f8fbfb;
+    border-color: #d9f0ec;
+  }
+}
+
+.extra-item input {
+  width: 18px;
+  height: 18px;
+}
+
+.extra-body {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.extra-title {
+  font-weight: 600;
+  color: #333;
+}
+
+.extra-price {
+  color: #0b6b63;
+  font-weight: 700;
+}
+
+/* ===========================
+   Summary box
+=========================== */
+.summary-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 12px 0 8px;
+  background: #f7fbfa;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.summary-box strong {
+  display: block;
+  font-size: 13px;
+  color: #666;
+}
+
+.summary-box p {
+  margin: 4px 0 0;
+  font-weight: 700;
+  color: #0b6b63;
+}
+
+.price-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.price-breakdown div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.price-breakdown .total {
+  margin-top: 6px;
+  font-weight: 800;
+  color: #0b6b63;
+  font-size: 16px;
+}
+
+/* ===========================
+   Payment form
+=========================== */
+.payment-form {
+  grid-template-columns: 1fr 1fr;
+}
+
+.payment-form input {
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+}
+
+/* ===========================
+   Complete
+=========================== */
+.complete-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  padding: 28px;
+  max-width: 640px;
+}
+
+.complete-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+/* ===========================
    Responsive
 =========================== */
 @media (max-width: 1024px) {
@@ -220,5 +636,13 @@
 
   .booking-buttons {
     justify-content: stretch;
+  }
+
+  .payment-form {
+    grid-template-columns: 1fr;
+  }
+
+  .room-card {
+    grid-template-columns: 1fr;
   }
 }

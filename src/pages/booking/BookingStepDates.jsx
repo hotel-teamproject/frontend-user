@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import "../../styles/pages/booking/BookingStep.scss";
 import { mockHotelDetail } from "../../api/mockHotelDetail";
+import BookingSummaryCard from "./BookingSummaryCard";
 
 const BookingStepDates = () => {
   const navigate = useNavigate();
@@ -40,6 +41,14 @@ const BookingStepDates = () => {
   };
 
   const hotel = mockHotelDetail;
+
+  const nights = (() => {
+    if (!checkIn || !checkOut) return 1;
+    const diff =
+      (new Date(checkOut).getTime() - new Date(checkIn).getTime()) /
+      (1000 * 60 * 60 * 24);
+    return Number.isNaN(diff) || diff <= 0 ? 1 : diff;
+  })();
 
   return (
     <div className="booking-page inner">
@@ -93,39 +102,46 @@ const BookingStepDates = () => {
               다음 단계
             </button>
           </div>
+
+          <div className="bottom-group">
+            <div className="booking-section">
+              <h3 className="section-title">안내 및 취소 정책</h3>
+              <ul className="info-list">
+                <li>체크인 24시간 전까지 무료 취소 가능합니다.</li>
+                <li>체크인 시간: 15:00 이후 / 체크아웃 시간: 11:00 이전</li>
+                <li>정부 신분증 또는 여권을 지참해 주세요.</li>
+              </ul>
+              <p className="muted">현장 정책은 호텔 사정에 따라 달라질 수 있습니다.</p>
+            </div>
+
+            <div className="booking-section">
+              <h3 className="section-title">도움이 필요하세요?</h3>
+              <ul className="info-list">
+                <li>여러 날짜를 비교하려면 달력 아이콘으로 다시 선택해 주세요.</li>
+                <li>인원이 다른 경우, 객실 단계에서 추가 옵션을 선택할 수 있습니다.</li>
+                <li>추가 문의: support@example.com</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
         {/* =========================
             RIGHT HOTEL SUMMARY (1개만)
         ========================= */}
         <aside className="booking-right">
-          <div className="hotel-summary">
-
-            <div className="hotel-header">
-              <div className="hotel-image">
-                <img src={hotel.images[0]} alt={hotel.name} />
-              </div>
-
-              <div className="hotel-info">
-                <h3>{hotel.name}</h3>
-                <p className="hotel-location">
-                  {hotel.city} • {hotel.location}
-                </p>
-                <div className="hotel-rating">
-                  {hotel.ratingAverage} • {hotel.ratingCount} reviews
-                </div>
-              </div>
-            </div>
-
-            <div className="hotel-price">
-              ₩{hotel.basePrice.toLocaleString()} <span>/night</span>
-            </div>
-
-            <button className="btn-primary" onClick={handleNext}>
-              예약 계속
-            </button>
-
-          </div>
+          <BookingSummaryCard
+            hotel={hotel}
+            roomName="객실 선택 전"
+            nights={nights}
+            checkIn={checkIn}
+            checkOut={checkOut}
+            guests={guests}
+            extras={[]}
+            roomPrice={0}
+          />
+          <button className="btn-primary summary-action" onClick={handleNext}>
+            객실 선택으로 이동
+          </button>
         </aside>
 
       </div>

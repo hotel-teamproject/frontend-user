@@ -1,5 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import {
+  FaMapMarkerAlt,
+  FaStar,
+  FaCoffee,
+  FaHeart,
+  FaCamera,
+} from "react-icons/fa";
 import "../../styles/components/search/HotelListCards.scss";
 
 const HotelListCards = ({ hotels = [] }) => {
@@ -25,7 +32,10 @@ const HotelListCards = ({ hotels = [] }) => {
             {/* ========== LEFT IMAGE (꽉 채우기) ========== */}
             <div className="hotel-image">
               <img src={hotel.image} alt={hotel.name} />
-              <div className="image-count">{hotel.imageCount} images</div>
+              <div className="image-count">
+                <FaCamera />
+                <span>{hotel.imageCount} images</span>
+              </div>
             </div>
 
             {/* ========== RIGHT CONTENT ========== */}
@@ -35,14 +45,21 @@ const HotelListCards = ({ hotels = [] }) => {
               <div className="hotel-header">
                 <div className="hotel-info">
                   <h3 className="hotel-name">{hotel.name}</h3>
-                  <div className="hotel-location">{hotel.location}</div>
+                  <div className="hotel-location">
+                    <FaMapMarkerAlt /> {hotel.location}
+                  </div>
 
                   <div className="hotel-meta">
                     <span className="hotel-stars">
-                      {"⭐".repeat(hotel.stars)} {hotel.stars} Star Hotel
+                      {[...Array(hotel.stars)].map((_, idx) => (
+                        <FaStar key={idx} />
+                      ))}
+                      <span className="hotel-stars-label">
+                        {hotel.stars} Star Hotel
+                      </span>
                     </span>
                     <span className="hotel-amenities">
-                      🏨 {hotel.amenities}+ Amenities
+                      <FaCoffee /> {hotel.amenities}+ Amenities
                     </span>
                   </div>
 
@@ -70,7 +87,7 @@ const HotelListCards = ({ hotels = [] }) => {
                   className="wishlist-button"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  ❤️
+                  <FaHeart />
                 </button>
 
                 <button
